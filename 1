@@ -1,20 +1,9 @@
-Failed to add official Claude plugins marketplace
-Failed to locate claude executable
-Checked common claude install paths
-Searched
-**/claude.{exe,cmd,ps1}
-Failed to add official marketplace via bundled CLI
-Verified claude.exe path exists
-Failed to add official marketplace (sandbox disabled)
-Failed to list claude-code install dir
-Checked packaged claude.exe path
-Failed to add official plugins marketplace
+winget install --id Git.Git -e
 
-Background task failed
-· Add official plugins marketplace
-Located git
-Searched for Git install directories
-Recursive search for git.exe
+irm https://claude.ai/install.ps1 | iex
+
+claude plugin marketplace add anthropics/claude-plugins-official
+claude plugin install unreal-engine-skills-for-claude-code@claude-plugins-official
 
 
 claude plugin marketplace add anthropics/claude-plugins-official
