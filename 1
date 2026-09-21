@@ -20,3 +20,18 @@ Microsoft Visual Studio Code Insiders CLI         Microsoft.VisualStudioCode.Ins
 Visual Studio Extension for Command Palette       davidegiacometti.VisualStudioForCmdPal       0.1.0           winget
 
 winget install --id Microsoft.VisualStudio.Community -e --override "--passive --wait --add Microsoft.VisualStudio.Workload.NativeGame --add Microsoft.VisualStudio.Workload.NativeDesktop --add Microsoft.VisualStudio.Workload.ManagedDesktop --includeRecommended"
+
+
+
+
+claude plugin marketplace add anthropics/claude-plugins-official
+claude plugin marketplace add anthropics/skills
+claude plugin marketplace add https://github.com/forrestchang/andrej-karpathy-skills.git
+claude plugin marketplace add JuliusBrussee/caveman
+
+claude plugin install superpowers@claude-plugins-official
+claude plugin install document-skills@anthropic-agent-skills
+claude plugin install claude-api@anthropic-agent-skills
+claude plugin install example-skills@anthropic-agent-skills
+claude plugin install andrej-karpathy-skills@karpathy-skills
+claude plugin install caveman@caveman
