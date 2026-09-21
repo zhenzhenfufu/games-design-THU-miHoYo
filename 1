@@ -22,6 +22,50 @@ claude plugin install caveman@caveman
 claude plugin install unreal-engine-skills-for-claude-code@claude-plugins-official
 
 
+找到了个大的——Epic Games 官方出的 Unreal MCP，能让我直接操控虚幻编辑器，而且就在 Anthropic 官方插件市场里。我之前说「别装第三方 UE MCP」，那是因为不知道有官方版。这个是 Epic 自己做的，UE 5.8 自带支持。
+
+能干什么
+
+生成和摆放 Actor、配置灯光、创建材质实例、改蓝图、Niagara 粒子、Sequencer 序列、运行自动化测试——30 多个工具集，几百个工具。
+
+也就是说：你说「把那面墙往左挪 50 厘米」「给庭院加一盏月光」，我直接在编辑器里做掉，不用你手点，也不用改代码重编译。
+
+怎么装（在那台 Windows 上）
+
+第一步，装 Claude Code 插件：
+
+claude plugin install unreal-engine-skills-for-claude-code@claude-plugins-official
+
+第二步，在 UE 里开两个插件：
+编辑 → 插件，搜 Unreal MCP，勾选启用；再搜 All Toolsets，勾选启用。依赖的 Toolset Registry 会自动带上。按提示重启编辑器。
+
+第三步，设成自动启动：
+编辑 → 编辑器偏好设置 → 通用 → 模型上下文协议，勾上「自动开启服务器」。默认地址 http://127.0.0.1:8000/mcp。
+
+第四步，生成配置文件：
+编辑器里按 **反引号键 `** 打开控制台，输入：
+
+ModelContextProtocol.GenerateClientConfig ClaudeCode
+
+会在项目根目录写一个 .mcp.json。
+
+第五步，顺序很重要：
+先开虚幻编辑器，再在项目根目录启动 claude。 反过来会连不上。
+
+连上后试一句「我选中了哪些 Actor」，能答上来就通了。
+
+三个注意
+这功能官方标注 Experimental，有些工具不完善，会有 bug
+只监听本机，没有身份验证，别暴露到公网
+工具调用要串行，别同时下一堆指令
+其他值得装的
+claude plugin install superpowers@claude-plugins-official
+claude plugin install document-skills@anthropic-agent-skills
+claude plugin install andrej-karpathy-skills@karpathy-skills
+claude plugin install project-artifact@claude-plugins-official
+
+前三个上次说过。project-artifact 是新推荐的：生成一个在线的项目状态页，写清目标、分工、进度、下一步，链接发群里，每次更新同一个网址。你们五个人分工容易乱，这个能省掉大量对齐成本。
+
 背景：我在做一个参赛作品，清华大学建筑学院 × 米哈游的「数字交互环境设计竞赛」。
 初赛 2026 年 10 月 11 日截止，交视频 + 设计说明文档。作品必须是游戏引擎做的、
 可交互的 3D 环境，明确排除纯概念设计和不可交互的静态渲染图。
